@@ -1,7 +1,6 @@
 package lotr;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CharacterTest {
@@ -29,11 +28,11 @@ public class CharacterTest {
     @Test
     public void testElfKickAgainstKnight() {
         Elf elf = new Elf();
-        Character knight = new Knight();
+        Knight knight = new Knight();
 
+        int initialHp = knight.getHp();
         elf.kick(knight);
-
-        assertEquals(9, knight.getHp(), "Elf should reduce Knight's HP by 1.");
+        assertEquals(initialHp - 1, knight.getHp(), "Elf should reduce Knight's HP by 1.");
     }
 
     @Test
@@ -50,7 +49,7 @@ public class CharacterTest {
     @Test
     public void testKnightKick() {
         Knight knight = new Knight();
-        Character king = new King();
+        King king = new King();
 
         int initialHp = king.getHp();
         knight.kick(king);
